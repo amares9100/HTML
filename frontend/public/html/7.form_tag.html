@@ -10,18 +10,20 @@
 	<body>
 	<!-- placeholder="문자열" : 입력가이드 문자열/입력시 사라짐-->
 	<!-- checked="checked" : 체크 상태 -->
+
 		<form> <!-- from s -->
-			<input /> <!-- 입력상자 --><br/>
+			[기본값]<input /> <!-- 입력상자 --><br/>
 			[읽기모드]<input value="인사과" readonly="readonly" /><br/><!-- readonly="readonly" 읽기모드 -->
 			[사용금지]<input type="text" disabled="disabled" placeholder="신입" /><br/><!-- disabled="disabled" 사용금지모드 -->         			
 			[포커스]<input type="password" placeholder="패스워드" autofocus="autofocus"/><br/><!-- autofocus="autofocus" 포커스 위치 이동 --><!-- 패스워드 -->
 			
+			<!-- name="식별이름" -->
 			[단일선택]
-			<input type="radio" name="email" checked="checked"/> 예 <br/>     		 <!-- 동그라미 선택버튼(복수선택x)단일선택 -->
+			<input type="radio" name="email" checked="checked"/> 예	 <!-- 동그라미 선택버튼(복수선택x)단일선택 -->
 			<input type="radio" name="email" /> 아니요<br/>			 <!-- 단 name속성이 동일해야함 -->
 			
 			[복수선택]
-			<input type="checkbox" name="email" /> 뉴스<br/>			 <!-- 네모 선택버튼(복수선택o)복수선택 -->
+			<input type="checkbox" name="email" /> 뉴스			 	 <!-- 네모 선택버튼(복수선택o)복수선택 -->
 			<input type="checkbox" name="email" /> 드라마<br/>
 			
 			[긴글텍스트]
@@ -32,11 +34,9 @@
 				<option> 네이버 </option>
 				<option> 카카오 </option>
 				<option> 네이트 </option>
-			</select>
+			</select><br/>
 			
-			<!-- name="식별이름" -->
 			<!-- velue="값" : 입력상자에 입력된 데이터 -->
-			
 			[버튼목록]
 			<input type="button" value="인증" /><br/> 				<!-- 이벤트버튼 : 추후 이벤트 버튼 사용 -->
 			<input type="submit" value="폼전송" /><br/>				<!-- 폼전송 : 추후에 전송 가능 -->
