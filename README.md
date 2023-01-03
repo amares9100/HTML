@@ -1,2 +1,2 @@
-# HTML/
+# HTML/CSS
 수업
