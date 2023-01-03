@@ -1,0 +1,23 @@
+@charset "EUC-KR";
+
+.t1{
+	width: 400px;
+	height: 200px;	
+}
+
+.h1{
+	text-align: center;
+	
+}
+
+.table1{
+	margin: 0 auto;
+	border-top: solid 2px red;
+	border-bottom: solid 2px red;
+	padding: 5px;
+}
+
+.h2{
+	text-align: center;
+	margin-left: 400px;
+}

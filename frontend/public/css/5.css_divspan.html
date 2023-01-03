@@ -1,0 +1,64 @@
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	
+	<link href="5.css_divspan.css" rel="stylesheet">
+	
+	</head>
+	<body>
+	<!-- 
+			layout : 특정 공간안에서 효과적으로 배치하는 것
+			
+			<div>  :
+				1. 한줄 차지 적용
+				2. display : block
+				
+			<span> : 
+				1. 같은 줄에 적용
+				2. display : inline
+				
+				
+			display 속성
+				display : none			표시 숨기기
+				display : block			한줄 차지 적용 [가로세로 사이즈 적용 o]
+					기본적으로 사용하는 태그들 : div, h1, p, ul, ol, li 등
+					
+				display : inline		같은 줄에 적용 [가로세로 사이즈 적용 x]
+					기본적으로 사용하는 태그들 : span, a
+					
+				display : inline-block	inline+block[가로세로 사이즈 적용 o]
+					기본적으로 사용하는 태그들 : button, input, select 등
+	 -->
+		<h3> 헤더 </h3> boxboxboxboxboxbox
+		<div> 박스(구역) 구분 태그</div> boxboxboxboxboxbox
+		<span>박스(구역) 구분 태그</span>boxboxboxboxboxbox
+	
+		<!-- 1. div안에 span inline인 경우 -->
+		<div>글자1 <span class="s1">안녕하세요 inline</span> 글자1</div>
+	
+		<!-- 2. div안에 span block인 경우 -->
+		<div>글자2 <span class="s2">안녕하세요 block</span> 글자2</div>
+	
+		<!-- 3. div안에 span inline-block인 경우 -->
+		<div>글자3 <span class="s3">안녕하세요 block</span> 글자3</div>
+	
+		<!-- 4. div안에 span none인 경우 -->
+		<div>글자4 <span class="s4">안녕하세요 block</span> 글자4</div>
+	
+		<!-- 1. div inline인 경우 -->
+		글자1 <div class="d1"> 안녕하세요 </div> 글자1
+		<!-- 1. div block인 경우 -->
+		글자2 <div class="d2"> 안녕하세요 </div> 글자2
+		<!-- 1. div inline-block인 경우 -->
+		글자3 <div class="d3"> 안녕하세요 </div> 글자3
+		<!-- 1. div none인 경우 -->
+		글자4 <div class="d4"> 안녕하세요 </div> 글자4
+	
+	
+	</body>
+</html>

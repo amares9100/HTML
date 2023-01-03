@@ -1,0 +1,29 @@
+@charset "EUC-KR";
+
+/*가운데 정렬*/
+h3{
+	text-align: center;
+}
+
+.login_t{
+	width: 400px;
+	margin: 0 auto;
+}
+
+.input_id, .input_pw{
+	height: 25px; width: 200px;
+}
+
+.btn_login{
+	padding: 20px 20px;
+}
+
+.d1{
+	background-color: #D3D3D3;
+	height: 25px;
+	margin-bottom: 2px;
+}
+
+h3{
+	border-top: solid 2px #E0E1E2;
+}

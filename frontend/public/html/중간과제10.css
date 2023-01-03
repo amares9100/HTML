@@ -1,0 +1,36 @@
+@charset "EUC-KR";
+
+.ta1{
+	border-top: solid 2px black;
+	width: 700px;
+	margin: 0 auto;
+	padding: 5px 10px;
+	
+}
+
+.tr1{
+	border-top: solid 2px #F0F0F0;
+	padding: 5px 10px;
+}
+
+.tr1 input{
+	width: 400px;
+	height: 20px;
+}
+
+.tr2{
+	border-top: solid 2px #F0F0F0;
+	padding: 5px 10px;
+	
+}
+.tr2 input{
+	width: 400px;
+	height: 70px;
+	
+}
+
+.tr3{
+	text-align: right;
+	padding: 10px 5px;
+	border-top: solid 2px #F0F0F0;
+}

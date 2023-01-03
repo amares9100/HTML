@@ -1,0 +1,59 @@
+@charset "EUC-KR";
+
+div{ /* div에 적용*/
+	border: solid 1px red;
+	margin: 20px;
+}
+
+span{
+	border: solid 1px orange;
+	
+}
+
+.s1{ /* s1 클래스에 적용*/
+	display: inline;
+	width: 200px;
+	height: 100px;
+}
+
+.s2{ /* s2 클래스에 적용*/
+	display: block;
+	width: 200px;
+	height: 100px;
+}
+
+.s3{ /* s3 클래스에 적용*/
+	display: inline-block;
+	width: 200px;
+	height: 100px;
+}
+
+.s4{ /* s4 클래스에 적용*/
+	display: none;
+	width: 200px;
+	height: 100px;
+}
+
+.d1{ /* d1 클래스에 적용*/
+	display: inline;
+	width: 200px;
+	height: 100px;
+}
+
+.d2{ /* d2 클래스에 적용*/
+	display: block;
+	width: 200px;
+	height: 100px;
+}
+
+.d3{ /* d3 클래스에 적용*/
+	display: inline-block;
+	width: 200px;
+	height: 100px;
+}
+
+.d4{ /* d4 클래스에 적용*/
+	display: none;
+	width: 200px;
+	height: 100px;
+}

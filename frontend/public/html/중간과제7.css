@@ -1,0 +1,35 @@
+@charset "EUC-KR";
+
+
+.book_img{
+	width: 400px;
+	
+}
+
+.s1{
+	color: orange;
+	font-size: 60px;
+	font-weight: bold;
+	
+}
+
+.s2{
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.s3{
+	width: 500px;
+	background-color: #0F6878;
+	padding: 20px;
+	color: white;
+	line-height: 170%;
+	
+}
+
+.s4{
+	color: orange;
+	font-weight: bold;
+	
+	
+}
