@@ -24,6 +24,5 @@ p{
 	font-weight: bold;			/*굵게 */
 	word-spacing: 2px; 			/*어간 */
 	letter-spacing: 3px;		/*자간 */
-	line-height: 150%;			/*줄간격 */
-	
+	line-height: 150%;			/*줄간격 */	
 }
