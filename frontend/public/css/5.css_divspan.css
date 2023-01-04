@@ -1,6 +1,6 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 
-div{ /* div¿¡ Àû¿ë*/
+div{ /* divì— ì ìš©*/
 	border: solid 1px red;
 	margin: 20px;
 }
@@ -10,49 +10,49 @@ span{
 	
 }
 
-.s1{ /* s1 Å¬·¡½º¿¡ Àû¿ë*/
+.s1{ /* s1 í´ë˜ìŠ¤ì— ì ìš©*/
 	display: inline;
 	width: 200px;
 	height: 100px;
 }
 
-.s2{ /* s2 Å¬·¡½º¿¡ Àû¿ë*/
+.s2{ /* s2 í´ë˜ìŠ¤ì— ì ìš©*/
 	display: block;
 	width: 200px;
 	height: 100px;
 }
 
-.s3{ /* s3 Å¬·¡½º¿¡ Àû¿ë*/
+.s3{ /* s3 í´ë˜ìŠ¤ì— ì ìš©*/
 	display: inline-block;
 	width: 200px;
 	height: 100px;
 }
 
-.s4{ /* s4 Å¬·¡½º¿¡ Àû¿ë*/
+.s4{ /* s4 í´ë˜ìŠ¤ì— ì ìš©*/
 	display: none;
 	width: 200px;
 	height: 100px;
 }
 
-.d1{ /* d1 Å¬·¡½º¿¡ Àû¿ë*/
+.d1{ /* d1 í´ë˜ìŠ¤ì— ì ìš©*/
 	display: inline;
 	width: 200px;
 	height: 100px;
 }
 
-.d2{ /* d2 Å¬·¡½º¿¡ Àû¿ë*/
+.d2{ /* d2 í´ë˜ìŠ¤ì— ì ìš©*/
 	display: block;
 	width: 200px;
 	height: 100px;
 }
 
-.d3{ /* d3 Å¬·¡½º¿¡ Àû¿ë*/
+.d3{ /* d3 í´ë˜ìŠ¤ì— ì ìš©*/
 	display: inline-block;
 	width: 200px;
 	height: 100px;
 }
 
-.d4{ /* d4 Å¬·¡½º¿¡ Àû¿ë*/
+.d4{ /* d4 í´ë˜ìŠ¤ì— ì ìš©*/
 	display: none;
 	width: 200px;
 	height: 100px;

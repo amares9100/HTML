@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 
 .ta1{
 	border-top: solid 2px black;
@@ -33,4 +33,9 @@
 	text-align: right;
 	padding: 10px 5px;
 	border-top: solid 2px #F0F0F0;
+}
+
+.tr4{
+	border-top: solid 2px #F0F0F0;
+	padding: 5px 10px;
 }
