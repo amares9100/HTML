@@ -5,8 +5,11 @@
 	1. 기본 베이스 : 맑은 고딕, 굴림
 	2. 강조 폰트	: 외부 폰트 가져오기 [@font-face]
 */
+/* --------공통---------*/
 
 a{ color: black; text-decoration: none;}
+li{ list-style-type: none;}
+ul{ padding: 0px;}
 
 @font-face {
     font-family: 'Happiness-Sans-Title';
@@ -14,12 +17,10 @@ a{ color: black; text-decoration: none;}
     font-weight: normal;
     font-style: normal;
 }
-*{
-	border: 1px solid gray;
-}
+
 
 #header{
-	width: 1200px; height: 100px;
+	width: 1200px;
 	margin: 0 auto;
 	display: flex; /* 하위요소 가로배치*/
 	justify-content: space-between; /* 좌우여백없는 균등배치*/
@@ -71,11 +72,40 @@ a{ color: black; text-decoration: none;}
 
 /* 사이드바 목록 꾸미기*/
 .side_bar li{
-	list-style-type: none; /* 글머리 제거*/
 	border-bottom: dotted 1px #eeeeee;
 	padding: 10px 10px;
 }
 
-.side_bar ul{
-	padding: 0px; /* ul 태그의 기본 패딩값 제거*/
+/* mian 본문 */
+.main_content h3{
+	font-size: 20px;
+	border-bottom: solid 1px #EEEEEE;
+	padding-bottom: 10px;
 }
+
+/* 푸터 */
+
+#footer{
+	background-color: #2C2A29;
+	margin-top: 50px;
+}
+
+#ft_box{
+	width: 1200px; margin: 0 auto;
+	display: flex; justify-content: space-between;
+	padding: 20px;
+}
+
+#ft_box li{
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
