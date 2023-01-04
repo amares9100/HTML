@@ -155,6 +155,7 @@ a{
 .right_main2_1{
 	display: flex;
 	justify-content: space-around;
+	margin-top: 10px;
 }
 
 
@@ -184,6 +185,11 @@ a{
 	color: white;
 }
 
+.item{
+	display: flex;
+	justify-content: space-between;
+}
+
 .foot2{
 	display: flex;
 	width: 1200px;
@@ -191,4 +197,8 @@ a{
 	justify-content: space-around;
 	color:white;
 	margin-top: 20px;
+}
+
+.foot2 h4{
+	padding-bottom: 4px;
 }
