@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+
+
+
+/* header */
+
+#header{
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	width: 1200px;
+}
+
+.main_menu li{
+	display: inline-block;
+	margin: 15px;
+	padding: 10px 30px;
+	font-size: 20px;
+	font: bold;
+}
+
+.top_menu{
+	text-align: right;
+}
+
+#main_img{
+	background-image: url("../img/6.png");
+	height: 300px; width: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 20px;
+}
+
+#main{
+	display: flex;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+#left_main{
+	display: flex; flex-direction: column;
+}
+
+.left_main1{
+	width: 220px;
+	margin: 10px;
+	padding: 10px 5px;
+	
+}
+
+.left_main1 h3{
+	font-size: 20px;
+	background-color: #0CA9A3;
+	color : white;
+	padding: 15px;
+}
+
+.left_main1 p{
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+.inp1{
+	height: 20px;
+	width: 150px;
+}
+
+.inp2{
+	margin-left: 10px;
+}
+
+.left_main1 div{
+	text-align: top-center;
+	margin: 10px 15px;
+	width: 200px;
+	
+}
+
+.left_main2{
+	border-top: solid 2px black;
+}
+
+.left_main3{
+	border-top: solid 2px black;
+}
+
+
+.left_main2 h3{
+	padding: 10px 5px;
+	border-bottom: solid 1px #EEEEEE;
+}
+
+.left_main2 li{
+	padding: 10px;
+	font-size: 15px;
+}
+
+.left_main3 h3{
+	padding: 10px 5px;
+	border-bottom: solid 1px #EEEEEE;
+}
+
+.left_main3 li{
+	padding: 10px;
+	font-size: 15px;
+}
+
+#right_main{
+	display: flex;
+	margin: 10px;
+}
+
+.right_main1{
+	width: 450px;
+}
+
+.right_main1 h4{
+	padding: 15px;
+	border-bottom: solid 2px black;
+}
+
+.right_main1 li{
+	padding: 10px 15px;
+}
+
+.right_main2{
+	width: 450px;
+	margin-left: 15px;
+}
+
+.right_main2 p{
+	font-size: 15px;
+	padding-bottom: 15px;
+}
+
+.right_main2 h4{
+	padding: 15px;
+	border-bottom: solid 2px black;
+}
+
+
+.right_main2_1{
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.right_main2_2{
+	display: flex;
+	justify-content: space-around;
+}
+
+#footer{
+	background-color: #05354E;
+	height: 200px;
+	margin-top: 30px;
+}
+
+.foot1{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.foot1 li{
+	font-size: 10px;
+	padding: 10px 10px;
+	display: inline-block;
+}
+
+.foot1 a{
+	color: white;
+}
+
+.foot2{
+	display: flex;
+	width: 1200px;
+	margin: 0 auto;
+	justify-content: space-around;
+	color:white;
+	margin-top: 20px;
+}
