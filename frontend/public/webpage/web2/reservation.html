@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<title>reservation</title>
 	
-	<link href="css/index.css" rel="stylesheet">
+	<link href="css/reservation.css" rel="stylesheet">
 	
 	</head>
 	<body>
@@ -26,10 +26,60 @@
 				<li> <a href="#">오시는 길</a> </li>
 			</ul>
 		</div>
-		<div id="main_img">
-			<img src="img/sub_reservation.jpg"/>
+		
+		<div id="sub_img">
+			<h3> 스튜디오 소개</h3>
+			<p>제품 사진 촬영을 위한 스튜디오 임대!</p>
 		</div>
-		<div id="content">reservation 본문</div>
+		
+		<div id="content">
+			<div class="table"><!-- 테이블 구역 -->
+				<p>예약날짜를 잡아주세요.</p>
+				<input type="month">
+				<table border="1">
+					<tr class="th">
+						<th class="sunday">일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+					</tr>
+					<tr class="day">
+						<td class="sunday">29</td><td>30</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+					</tr>
+					<tr class="day">
+						<td class="sunday">6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+					</tr>
+					<tr class="day">
+						<td class="sunday">13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+					</tr>
+					<tr class="day">
+						<td class="sunday">20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+					</tr>
+					<tr class="day">
+						<td class="sunday">27</td><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="m_text"><!-- text 구역 -->
+					<div>
+						<h2>예약안내</h2>
+					<ul>
+						<li>· 1일 전 예약해 주세요.</li>
+						<li>· 용 일주일 후에 취소는 환불됩니다.</li>
+						<li>· 이용시간은 촬영과 준비 포함입니다.</li>
+						<li>· 일요일은 휴일입니다.</li>
+					</ul>
+					</div>
+					
+					<div>
+						<h2>이용요금</h2>
+					<ul>
+						<li>· 1시간 : 30,000원</li>
+						<li>· 반일대여 : 100,000원</li>
+						<li>· 종일대여 : 200,000원</li>
+					</ul>
+						<p>더 자세한 내용은 전화(1234-1234)로 문의주세요.</p>
+					</div>
+			</div>
+		</div>
 		
 		<div id="footer">
 			<div class="ft_content">

@@ -5,6 +5,7 @@
 a{ text-decoration: none; color: black; }
 li{ list-style-type: none; }
 
+
 /* *{ border: 1px solid blue;} */
 
 /* -------------- 헤더 -----------------*/
@@ -27,10 +28,36 @@ li{ list-style-type: none; }
 #main_img{ text-align: center; }
 
 /* -------------- 본문 -----------------*/
-#content{ width: 1200px; margin: 0 auto; height: 600px; }
+#content{ width: 1200px; margin: 0 auto;
+	display: flex;
+	
+ }
+
+.banner{
+	display: flex;
+	width: 500px; margin: 80px 50px;
+}
+
+.banner img{
+	padding: 0px 20px;
+}
+
+
+#items{background-color: #eeeeee;}
+.item{
+	width: 270px;
+	margin: 30px 20px;
+}
+.item img{
+	width: 100%;
+}
+
+.item li{
+	padding: 5px 0px;
+}
 
 /* -------------- 푸터 -----------------*/
-#footer{ background-color: #292C32; height: 200px; }
+#footer{ background-color: #292C32; height: 200px;}
 
 .ft_content{
 	width: 1200px; margin: 0 auto;
