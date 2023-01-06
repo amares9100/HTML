@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+
+#header{
+	display: flex;
+	justify-content: space-between;
+	
+	/* 해당 요소가 화면에서 나갔을때 위치 고정*/
+	position: sticky; 
+	
+	top:0px;
+	background-color: red;
+	border-bottom: 1px solid gray;
+	
+	/* 다른 요소와 겹쳤을때의 대한 배치 순서 */
+	z-index: 1;
+}
+
+#header .h_menu li{
+	display: inline-block;
+}
+
+.popup{
+	width: 20%;
+	border: 1px solid #EEEEEE;
+	
+	/*화면 고정*/
+	position: fixed;
+	/*고정 위치 : 가장 오른쪽 위에서 20%*/
+	right: 0px; top: 20%;
+	
+	background-color: white; /* 기본값 : transparent */
+	opacity: 0.4; /* 투명도 [% 혹은 소숫점]*/
+}
+
+body{
+	background-color: yellow;
+}
