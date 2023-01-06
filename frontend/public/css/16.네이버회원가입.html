@@ -24,26 +24,70 @@
 			</div>			<!-- 헤더 s -->
 			
 			<form id="join_form"><!-- 본문 s -->
-				<div> <!-- 아이디, 비밀번호, 비밀번호 확인 구역 -->
+				<div> <!-- 아이디, 비밀번호, 비밀번호 확인 구역 s-->
 					
 					<h3>아이디</h3>
 					<span class="signup_input">
-						<input id="input_id" type="text">
-						<span>@naver.com</span>
+						<input class="input_id" type="text">
+						<span class="signup_at">@naver.com</span>
 					</span>
 					
 					<h3>비밀번호</h3>
 					<span class="signup_input">
-						<input id="input_id" type="password">
+						<input class="input_id" type="password">
 						<span class="signup_lock"></span>
 					</span>
 					
 					<h3>비밀번호 확인</h3>
 					<span class="signup_input">
-						<input id="input_id" type="password">
+						<input class="input_id" type="password">
 						<span class="signup_lock"></span>
 					</span>
-				</div>
+				</div> <!-- 아이디, 비밀번호, 비밀번호 확인 구역 e-->
+				
+				<div><!-- 이름 생년월일 성별 이메일 s -->
+					<h3>이름</h3>
+					<span class="signup_input">
+					<input class="input_id" type="text">
+					</span>
+					
+					<h3>생년월일</h3>
+					<span class="birthbox"> <!-- 생년월일 s -->
+					
+						<span class="signup_input" id="birth_y">
+						<input class="input_id"  placeholder="년(4자)">
+						</span>
+					
+					
+						<span class="signup_input" id="birth_m">
+						<select class="input_id" >
+							<option>월</option><option>1</option><option>2</option>
+							<option>3</option><option>4</option><option>5</option>
+							<option>6</option><option>7</option><option>8</option>
+							<option>9</option><option>10</option><option>11</option>
+							<option>12</option>
+						</select>
+						</span>
+					
+						<span class="signup_input" id="birth_d">
+						<input class="input_id" placeholder="일">
+					 	</span>
+					
+					</span> <!-- 생년월일 e -->
+					
+					<h3>성별</h3>
+					<span class="signup_input"> <!-- 성별 s -->
+						<select class="input_id" >
+							<option>성별</option><option>남자</option><option>여자</option>
+							<option>선택안함</option>
+						</select>
+					</span>						<!-- 성별 e -->
+					
+					<h3>본인 확인 이메일<span class="sel">(선택)</span></h3>
+					<span class="signup_input"> <!-- 이메일 s -->
+					<input class="input_id" type="text" placeholder="선택입력">
+					</span>                     <!-- 이메일 s -->
+				</div><!-- 이름 생년월일 성별 이메일 e -->
 			
 			
 			
