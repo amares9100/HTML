@@ -28,12 +28,18 @@ for( let 곱 = 1 ; 곱 <= 9 ; 곱++  ){ // for s
 document.querySelector('.gu_table').innerHTML = 테이블행
 
 
-let 테이블행2 = '<tr> <th>단</th> <th>곱</th> <th>결과</th> </tr>';	
-function on(){
-let 단수 = document.querySelector('.단')
-let 곱 = document.querySelector('.곱')
-let 값 = (단수.value*곱.value)
 
-테이블행2 += '<tr> <th>'+단수.value+'</th> <th>'+곱.value+'</th> <th>'+값+'</th> </tr>';
+function on(){
+	//함수 s
+let 단수 = document.querySelector('.단').value
+let 곱 = document.querySelector('.곱').value
+let 테이블행2 = '<tr> <th>단</th> <th>곱</th> <th>결과</th> </tr>';	
+
+	//for s
+	for( let p = 1 ; p <= 곱 ; p++  ){ 
+
+	테이블행2 += '<tr> <th>'+단수+' </th> <th>'+p+'</th> <th>'+(단수*p)+'</th> </tr>';
+}   //for e
+
 document.querySelector('.gu_table2').innerHTML = 테이블행2
-}
+}   //함수 e
