@@ -18,10 +18,13 @@ let studentvalue = student.value;
 let sindex = studentArray.indexOf( studentvalue )
 
 let slength = studentvalue.length
-console.log(studentvalue.length)
 
 if (studentvalue.search(/\s/) != -1) {
             alert("비밀번호는 공백 없이 입력해주세요.");
+            return false;
+}
+else if (joinvalue.search(hecheck) != -1) { //한글/영문확인
+            alert("숫자만 입력하세요");
             return false;
 }
 else if (slength != 8) {
@@ -41,51 +44,38 @@ else{alert('로그인성공')}
 
 function join(){
 	
-	let join = document.querySelector('.join')
-	
-	
-
+let join = document.querySelector('.join')
 
 let joinvalue = join.value;
 console.log('joinvalue : ' + joinvalue)
-
 let jlength = joinvalue.length
 console.log('jlength : ' + jlength)
-
 let join1 = studentArray.indexOf(joinvalue)
+//console.log('join1 : ' + join1)
+
+var hecheck = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|a-z]/;
 
 
-
-if (joinvalue.search(/\s/) != -1) {
-            alert("비밀번호는 공백 없이 입력해주세요.");
+if (joinvalue.search(/\s/) != -1) { // 공백확인
+            alert("학번은 공백 없이 입력해주세요.");
             return false;
 }
-else if (jlength != 8) {
+else if (joinvalue.search(hecheck) != -1) { //한글/영문확인
+            alert("숫자만 입력하세요");
+            return false;
+}
+else if (jlength != 8) { 				   // 글자수 확인
             alert("학번은 8자리수입니다.");
             return false;
 }
-else if(join1 != -1 ){ alert('등록된 번호입니다.');
+else if(join1 != -1 ){					   // 등록된번호확인
+			alert('등록된 번호입니다.');
 			return false;
 }
-else{alert('등록성공')
-	studentArray.push(join.value)
-
+else{alert('등록성공')			  // 등록성공메시지
+	studentArray.push(join.value) // studentArray에 학번 등록
+console.log(studentArray) 		  // 작동확인
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
