@@ -47,14 +47,13 @@ function join(){
 let join = document.querySelector('.join')
 
 let joinvalue = join.value;
-console.log('joinvalue : ' + joinvalue)
+//console.log('joinvalue : ' + joinvalue)
 let jlength = joinvalue.length
-console.log('jlength : ' + jlength)
+//console.log('jlength : ' + jlength)
 let join1 = studentArray.indexOf(joinvalue)
 //console.log('join1 : ' + join1)
 
 var hecheck = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|a-z]/;
-
 
 if (joinvalue.search(/\s/) != -1) { // 공백확인
             alert("학번은 공백 없이 입력해주세요.");
@@ -74,7 +73,8 @@ else if(join1 != -1 ){					   // 등록된번호확인
 }
 else{alert('등록성공')			  // 등록성공메시지
 	studentArray.push(join.value) // studentArray에 학번 등록
-console.log(studentArray) 		  // 작동확인
+//console.log(studentArray) 		  // 작동확인
+		join.value = ' '
 }
 
 }
