@@ -31,11 +31,7 @@ document.querySelector('.gu_table').innerHTML = 테이블행
 let 테이블행2 = '<tr> <th>단</th> <th>곱</th> <th>결과</th> </tr>';	
 function on(){
 let 단수 = document.querySelector('.단')
-console.log(단수.value)
-
 let 곱 = document.querySelector('.곱')
-console.log(곱.value)
-
 let 값 = (단수.value*곱.value)
 
 테이블행2 += '<tr> <th>'+단수.value+'</th> <th>'+곱.value+'</th> <th>'+값+'</th> </tr>';
