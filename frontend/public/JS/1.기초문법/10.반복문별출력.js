@@ -212,36 +212,29 @@ let out6 = ''
 
 let ex6 = Number( prompt('과제)') )
 
+						//피라미드 시작
+for(let i = 1 ; i <= ex6 ; i++ ){  			//줄수=i 입력값(ex6)과 작거나 같을때까지 증가
 
-for(let i = 1 ; i <= ex6 ; i++ ){
-
-	for(let s = 1 ; s<=ex6-i ; s++){
+	for(let s = 1 ; s<=ex6-i ; s++){		//빈칸=s 입력값(ex6)-줄수(i) 보다 작거나 같을때까지 증가
 		out6 += ' '	
 }
-	for(let st = 1 ; st <= i*2-1 ; st++ ){
+	for(let st = 1 ; st <= i*2-1 ; st++ ){	//별수=st 줄수(i)*2-1 보다 작거나 같을때까지 증가
 		out6 += '*'		
-}
+}						
 out6 += '\n'
-}
-for(let i = 1 ; i <= ex6 ; i++ ){
+}						//피라미드 끝	
+						//역피라미드 시작
+for(let i = 1 ; i <= ex6 ; i++ ){			//줄수=i 입력값(ex6)과 작거나 같을때까지 증가
 	
-	for(let s = 1 ; s<=i-1; s++){
+	for(let s = 1 ; s<=i-1; s++){			//빈칸=s 줄수(i)-1 보다 작거나 같을때까지 증가
 		out6 += ' '	
 }
-	for(let st = 1 ; st <= (ex6-i)*2+1 ; st++ ){
+	for(let st = 1 ; st <= (ex6-i)*2+1 ; st++ ){ //별수=st (입력값-줄수)*2+1 보다 작거나 같을때까지 증가
 		out6 += '*'
 }
 out6 += '\n'
-}
+}						//역피라미드 끝		
 console.log(out6)
-
-
-
-
-
-
-
-
 
 
 
