@@ -25,7 +25,7 @@ console.log(contentArray)
 let num = contentArray.length
 console.log(num)
 
-for(let 번호 = 0 ; 번호<=(num-1) ; 번호++){
+for(let 번호 = 1 ; 번호<=(num) ; 번호++){
 
 	
 	table1 += '<tr> <th>'+번호+' </th> <th>'+contentArray[번호]+'</th></tr>';
