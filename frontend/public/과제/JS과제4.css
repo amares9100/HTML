@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+*{background-color: #EEEEEE;}
+
+
+.content{
+	width: 50%; border: 2px solid black;
+	margin: 5px;
+	padding: 3px;
+}
+
+.wrap{display: flex;}
+
