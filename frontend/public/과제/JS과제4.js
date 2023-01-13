@@ -41,53 +41,32 @@
 
 
 let 도서목록 = ['혼자공부하는 자바' , '이것이자바다' , '열혈 C언어']
-let 대여목록 = ['혼자공부하는 자바']
+let 대여목록 = []
 
-console.log(도서목록)
-console.log(도서목록.length)
-
-
-function 등록(){
-	let 등록대기 = document.querySelector('.등록').value
-	let 등록대기검사 = document.write(등록대기.lenght)
-	console.log(등록대기)
-	if (등록대기검사 < 5) {
-            alert("5글자이상입력");
-            return false;
-	}
-	else if (등록대기검사 > 10) {
-            alert("10글자이하입력");
-            return false;
-	}
-	for(let i = 0 ; i < 도서목록.length ; i++){
-		console.log(도서목록[i])
-		if(등록대기.includes(도서목록[i])){
-			return;
+function add( ) {
+	
+	let join = document.querySelector('.add1').value
+	
+	for(let i = 0 ; i<=도서목록.length ; i++){
+		if(도서목록.indexOf(join) != -1){
+			console.log('등록불가 :' + i)
+			
 		}
 		else{
-			도서목록.push(등록대기);
-			alert('등록되었습니다.');
-			return;
+			console.log(join)
+			도서목록.push(join)
+			alert('등록되었습니다.')
+			새로고침()
+			return false;
 		}
-	} 
+	}
+	
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
 
+	
+
+	
+	
 function 새로고침(){
 	
 	let list = `<tr><th>등록번호</th><th>도서명</th><th>상태</th><th>비고</th></tr>`
@@ -95,39 +74,57 @@ function 새로고침(){
 	for(let i = 0 ; i < 도서목록.length ; i++){
 	
 		if( 대여목록.includes( 도서목록[i] ) ){
-			list += `<tr><td>${i+1}</td><td>${도서목록[i]}</td><td class='대여여부'>불가능</td><td><button onclick="삭제()">삭제하기</button></td></tr>`
+			list += `<tr><td>${i+1}</td><td>${도서목록[i]}</td><td class='대여여부'>삭제불가</td><td><button onclick="삭제불가()">삭제불가</button></td></tr>`
 		
 		}else{
-			list += `<tr><td>${i+1}</td><td>${도서목록[i]}</td><td class='대여여부'>가능</td><td><button onclick="삭제()">삭제하기</button></td></tr>`
+			list += `<tr><td>${i+1}</td><td>${도서목록[i]}</td><td class='대여여부'>삭제가능</td><td><button onclick="삭제(${i})">삭제하기</button></td></tr>`
 		}
 
 	}
 	document.querySelector('.도서리스트').innerHTML=list
+	새로고침2()
+}
+
+function 삭제( dno ){
+	도서목록.splice( dno , 1 )
+	새로고침( )
+	새로고침2()
 }
 
 
 
 
-//list += `<tr><td>${i+1}</td><td>${도서목록[i]}</td><td class='대여여부'></td><td><button onclick="삭제()">삭제하기</button></td></tr>`
+//-----------------------------------------------------//
 
-
-/* 대여 확인
-for(let i = 0 ; i < 도서목록.length ; i++ ){
-		for(let j = 0 ; j < 대여목록.length ; j++ ){
-			console.log(도서목록[i] +' : '+ 대여목록[j])
-			if(도서목록[i] == 대여목록[j]){
-				
-		}
-			
-	}
+function 새로고침2(){
+		
+	let list = `<tr><th>등록번호</th><th>도서명</th><th>상태</th><th>비고</th></tr>`
 	
+	for(let i = 0 ; i < 도서목록.length ; i++){
+	
+		if( 대여목록.includes( 도서목록[i] ) ){
+			list += `<tr><td>${i+1}</td><td>${도서목록[i]}</td><td class='대여여부'>대여중</td><td><button onclick="반납(${i})">반납</button></td></tr>`
+		
+		}else{
+			list += `<tr><td>${i+1}</td><td>${도서목록[i]}</td><td class='대여여부'>대여가능</td><td><button onclick="대여(${i})">대여가능</button></td></tr>`
+		}
+
+	}
+	document.querySelector('.대여리스트').innerHTML=list
+
 }
 
+function 대여( dno ){
+	대여목록.push(도서목록[dno])
+	새로고침2()
+	새로고침( )
+}
 
-
-*/
-
-
+function 반납(dno){
+	대여목록.splice(대여목록.indexOf( dno ), 1 )
+	새로고침2()
+	새로고침( )
+}
 
 
 
