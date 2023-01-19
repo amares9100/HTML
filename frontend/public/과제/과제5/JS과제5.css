@@ -135,3 +135,34 @@
 .orderbtn{
 	background-color: red;
 }
+
+.admin th, td, table{
+	border: 1px solid black;
+}
+
+.burger_admin th{
+	width: 20%;
+}
+
+.burger_admin{
+	border: 2px solid black;
+	margin: 5px;
+	padding: 5px;
+}
+
+.admin_burger th{
+	width: 15%;
+}
+
+.new_burger button{
+	padding: 5px;
+}
+
+.admin{
+	margin: 10px;
+}
+
+.admin_new{
+	padding: 5px;
+	margin: 5px 0px;
+}

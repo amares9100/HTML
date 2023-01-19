@@ -1,0 +1,23 @@
+오더리스트 i 		버거이름j 	상태			요청일		비고
+주문4개
+i=1				1			o			o			o
+				2			o			o			o
+				3			o			o			o
+				4			o			o			o
+
+비고에서 확인하면 상태 주문완료로 변경
+
+
+
+i=2
+
+
+
+
+
+i=3
+
+
+	for(let i = 0 ; i <=
+	for (let j = 0; j < arr.length; j++ ) {      // 버거이름 가져오기
+  	console.log(arr[Object.keys(arr)[j]].name);

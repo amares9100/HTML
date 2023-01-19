@@ -64,7 +64,42 @@
 		
 			<div class="container"> <!-- 관리자 -->
 				<h3>포스기</h3>
-				<div>
+				<div class="admin"> <!-- 관리자 wrap -->
+					
+					
+					<div class="burger_admin"> <!-- 버거 목록 -->
+						<h4>1. 버거 목록</h4>
+						<table class="admin_burgerlist">
+						
+						</table>
+					</div>
+					
+					
+					<div class="admin"> <!-- 버거현황 -->
+						<h4>2. 버거 현황(등록/삭제)</h4>
+						<div class="admin_new">
+						<input type="text" class="new_name">:버거이름<br/>
+						<input type="text" class="new_category">:category(프리미엄,스페셜,와퍼,올데이킹,치킨버거)<br/>
+						<input type="text" class="new_price">:price<br/>
+						<input type="text" class="new_img">:img(파일명.JPG)
+						</div>
+						<div class="new_burger"><button onclick="new_burger()">버거등록하기</button></div>
+						<table class="admin_burger">
+						
+						</table>
+					</div>
+				
+					<div><!-- 주문현황 -->
+						<h4>3. 주문현황</h4>
+						<table class="admin_ordercu">
+						
+						
+						</table>
+					<button onclick="re()">확인용</button>
+					
+					
+					
+					</div>
 				
 				
 				
