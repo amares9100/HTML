@@ -27,3 +27,102 @@
 
 /* 하단 메뉴 : 가로 수평정렬 / justify-content: space-between 사용시 width 필수!  */
 .h_bottommenu{ width: 100%; display: flex; justify-content: space-between; font-size: 12px; font-weight: bold;}
+
+.itembox{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* 서로 다른 사이즈[디바이스]마다 css다르게 설정 -> 미디어쿼리*/
+@media(max-width : 1000px){
+.item{
+	width: 45% !important;
+	margin: 2% !important;
+}
+}
+
+@media(max-width : 500px){
+.item{
+	width: 90% !important;
+	margin: 2% !important;
+}
+}
+
+/* 1200px이상 기준 */
+.box_title{
+	text-align: center;
+	font-family: 'RixInooAriDuriR';
+	padding-top : 10%;
+	padding-bottom : 1%;
+	border-bottom: 2px solid #999999;
+	width: 20%;
+	margin: 0 auto;
+}
+
+.item{
+	width: 20%; margin: 2%;
+}
+.item img{
+	width: 100%;
+	border-radius: 20px;
+}
+
+.item :hover{  /*해당요소에 마우스를 올렸을때*/
+	opacity: 0.8; /* 투명도 */
+}
+
+.item_title{
+	font-size: 15px;
+	margin: 5% 0%;
+	height: 35px;
+}
+
+.item_size{
+	font-size: 13px;
+	color: #999999;
+	border-bottom: 1px solid #999999;
+	padding-bottom: 5px;
+}
+
+.item_price{
+	text-decoration: line-through;
+	font-size: 13px;
+	color: #999999;
+	margin-top: 3%;
+}
+
+.item_sale{
+	font-family: 'RixInooAriDuriR';
+	font-size: 16px;
+}
+
+.item_discount{
+	color: red;
+	font-size: 16px;
+	font-family: 'RixInooAriDuriR';
+}
+
+.item_bottom{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.item_review{
+	font-size: 13px;
+	color: #999999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
