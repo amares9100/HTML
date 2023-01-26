@@ -122,6 +122,8 @@ function order(){
 	// 2. 주문완료 후 
 	cartList.splice(0)
 	카트프린트();
+	ordercu();
+	sales_print();
 }	
 	
 
@@ -234,6 +236,11 @@ function new_burger(){
 	 new_price = parseInt(document.querySelector('.new_price').value)
 	 let new_img = document.querySelector('.new_img').value
 	
+	
+	if(isNaN(new_price)){
+		alert('가격은 숫자만 가능합니다.'); return;
+	}
+	
 	for(let i = 0 ; i<categorylist.length ; i++){
 		if(new_category.includes(categorylist[i])){
 		
@@ -251,53 +258,96 @@ function new_burger(){
 } 
 ordercu();
 function ordercu(){
-	let admin_ordercu =`<tr>
-						<th>주문번호</th><th>주문목록</th><th>상태</th><th>요청시간</th><th>완료</th>
-						</tr>`
+	let html =`<tr>
+				<th width="10%">주문번호</th>
+				<th width="30%">주문목록</th>
+				<th width="20%">상태</th>
+				<th width="20%">요청시간</th>
+				<th width="20%">완료</th>
+				</tr>`
 
-	
-	
+	orderList.forEach((order , i) => {
+		order.items.forEach((burger , j) => {
+		let time1=order.time.getHours() + ':' + order.time.getMinutes();
+		
+		if(order.state == false){
+			time1+= '/' + order.time.getHours() + ':' + order.time.getMinutes();
+		}
+			
+		html +=`<tr>
+				<td>${order.no}</td>
+				<td>${burger.name}</td>
+				<td>${order.state ? "주문요청" : "주문완료"}</td>
+				<td>${time1}</td>
+				<td>
+					${order.state ? '<button onclick="oncomplete('+i+')">주문완료</button>' : "<span></span>"}
+					
+				</td>
+				</tr>`
+		})
+	})
+	document.querySelector('.admin_ordercu').innerHTML=html
+}
 
-	
-	
-	
-	document.querySelector('.admin_ordercu').innerHTML=admin_ordercu
+function oncomplete(i){
+	orderList[i].state = false;
+	orderList[i].complete = new Date();
+	ordercu();
 }
 
 
-
-function re(){
-
-	console.log(orderList) 
-	console.log(orderList[0]) 
-
+sales_print();
+function sales_print(){
+	let html = `<tr>
+				<th width="10%">제품번호</th>
+				<th width="30%">버거이름</th>
+				<th width="20%">판매수량</th>
+				<th width="20%">매출액</th>
+				<th width="20%">순위</th>
+				</tr>`
+	burgerList.forEach((burger , i)=> {
+		html += `<tr>
+				<td >${i+1}</td>
+				<td >${burger.name}</td>
+				<td >${sales_count(i)}</td>
+				<td >${sales_count(i)*burger.price}</td>
+				<td >${sales_rank(i)}</td>
+				</tr>`
 	
-
-	let arr = orderList[Object.keys(orderList)[0]].items
+	document.querySelector('.sales_print').innerHTML=html
 	
-	console.log('주문시간 : ' + orderList[Object.keys(orderList)[0]].time)
-	
-	console.log('주문순서 : ' + orderList[Object.keys(orderList)[0]].no)
-	
-	console.log('가격 : ' + orderList[Object.keys(orderList)[0]].price)
-	
-	// 버거이름 가져오기 + 확인
-	for (let i = 0; i < arr.length; i++ ) {
-	
-  	console.log(arr[Object.keys(arr)[i]].name);
+	})
 }
+
+
+function sales_count(index){
 	
+	let count = 0;
+	orderList.forEach((order , i)=> {
+		order.items.forEach((burger , j) => {
+			if( burger.name == burgerList[index].name){
+				count++;
+			}
+		})
+	})
+	return count;
 }
 
-
-
-
-
-
-
-
-
-
+function sales_rank(index){
+	let rank = 1;
+	
+	let total = sales_count(index) * burgerList[index].price;
+	
+	burgerList.forEach((burger, i)=> {
+		let total2 = sales_count(i) * burger.price;
+		
+		if(total < total2){
+			rank++;
+		}
+	})
+	
+	return rank;
+}
 
 
 
