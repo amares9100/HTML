@@ -22,7 +22,7 @@ function product_print(){
 					<div class="item_price">${o.price}</div>	<!-- 원가 -->
 					<div>
 						<span class="item_sale">${(o.price*(1-o.discount)).toLocaleString()}</span>	<!-- 판매가 -->
-						<span class="item_discount">${o.discount*100}%</span><!-- 할인율 -->
+						<span class="item_discount">${parseInt(o.discount*100)}%</span><!-- 할인율 -->
 					</div>
 				</div>
 				<div class="item_bottom"><!-- 제품정보 하단구역 -->
