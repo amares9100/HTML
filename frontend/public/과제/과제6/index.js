@@ -8,19 +8,20 @@ let monHP = document.querySelector('.monHP')
 let monatk = document.querySelector('.monatk')
 let monatk2 = document.querySelector('.monatk2')
 let userHP = document.querySelector('.userHP')
+let lv = document.querySelector('.lv')
 
 let u_left = 10; // 유저 첫위치
 let m_left = 800;// 몬스터 첫위치
 
 let user = {
-	HP : 100 , exp : 0 , Lv : 1 , pwr : 20 , exp : 0
+	HP : 100 , exp : 0 , Lv : 1 , pwr : 10 , exp : 0
 }
 let monster = [
-	{name : 'm1' , HP : 100 , pwr : 5 , img : 'img/mon1.gif'},
-	{name : 'm2' , HP : 130 , pwr : 7 , img : 'img/mon2.gif'},
-	{name : 'm3' , HP : 160 , pwr : 10 , img : 'img/mon3.gif'},
-	{name : 'm4' , HP : 200 , pwr : 12 , img : 'img/mon4.gif'},
-	{name : 'm5' , HP : 240 , pwr : 15 , img : 'img/mon5.gif'}
+	{name : 'm1' , HP : 100 , pwr : 5 , img : 'img/mon1.gif' , exp : 100},
+	{name : 'm2' , HP : 130 , pwr : 7 , img : 'img/mon2.gif' , exp : 100},
+	{name : 'm3' , HP : 160 , pwr : 10 , img : 'img/mon3.gif' , exp : 100},
+	{name : 'm4' , HP : 200 , pwr : 12 , img : 'img/mon4.gif' , exp : 200},
+	{name : 'm5' , HP : 240 , pwr : 15 , img : 'img/mon5.gif' , exp : 300}
 	]
 
 let stage = 0;
@@ -30,13 +31,14 @@ let stage = 0;
 
 document.addEventListener( 'keydown' , (e) => {
 	
-	console.log(e.keyCode)
+	//console.log(e.keyCode)
 	
 	let key = e.keyCode
 	
 	
 	if(key == 83){
-		user.HP = 100;
+		userbox.style.backgroundImage = `url("img/esc.gif")`
+		user.HP = 100+(user.Lv*20);
 		userHP.innerHTML=`${user.HP}`
 		userHP.style.width = `${ user.HP*2 }px`;
 	}
@@ -58,7 +60,7 @@ document.addEventListener( 'keydown' , (e) => {
 		if(m_left-u_left < 150 ){
 			m_left += 50;
 			monbox.style.left = `${ m_left }px`;
-			let atk = parseInt(user.pwr+parseInt(Math.random()*20));
+			let atk = parseInt((user.Lv*user.pwr)+parseInt(Math.random()*10));
 			
 			monster[stage].HP -= atk
 			monHP.style.width = `${ monster[stage].HP }px`;
@@ -111,18 +113,20 @@ function mon_moving(){
 function st(){
 	
 	if(monster[stage].HP <= 0){
+	LV();
 	stage++;
-	console.log(stage)
 	monbox.style.backgroundImage = `url("${monster[stage].img}")`
 	monHP.style.width = `${ monster[stage].HP }px`;
 	monatk2.innerHTML=`<div></div>`
 	monatk.innerHTML=`<div>남은체력:</div>`
-	user.HP = 100;
+	user.HP = 100+(user.Lv*20);
 	userHP.innerHTML=`${user.HP}`
 	userHP.style.width = `${ user.HP*2 }px`;
 	u_left = 10;
 	m_left = 800;
+	lv.innerHTML=`Lv : ${user.Lv}`
 	alert('stage' + (stage+1))
+
 }
 }
 
@@ -132,7 +136,9 @@ function end(){
 }
 }
 
-userHP.innerHTML=`${user.HP}`
+
+lv.innerHTML=`Lv : ${user.Lv}`
+userHP.innerHTML=`${100+(user.Lv*20)}`
 function body(){
 	if(m_left-u_left < 100){
 		user.HP -= monster[stage].pwr
@@ -145,6 +151,24 @@ function body(){
 		return false;
 	}
 }
+
+function LV(){
+	user.exp += monster[stage].exp
+		if(user.exp > 100+(user.Lv*50)){
+		user.Lv++;
+		let eexp = user.exp-(100+(user.Lv*50))
+		console.log(eexp)
+		user.exp = eexp
+		console.log(user.exp)
+		alert('lv업')
+		return false;
+	}
+}
+
+
+
+
+
 
 
 
