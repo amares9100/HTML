@@ -37,3 +37,7 @@ function product_print(){
 	})
 	document.querySelector('.itembox').innerHTML=html;
 }
+
+
+
+

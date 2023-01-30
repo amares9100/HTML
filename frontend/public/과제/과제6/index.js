@@ -9,6 +9,7 @@ let monatk = document.querySelector('.monatk')
 let monatk2 = document.querySelector('.monatk2')
 let userHP = document.querySelector('.userHP')
 let lv = document.querySelector('.lv')
+let wrap = document.querySelector('.wrap')
 
 let u_left = 10; // 유저 첫위치
 let m_left = 800;// 몬스터 첫위치
@@ -133,6 +134,7 @@ function st(){
 function end(){
 	if(monster[4].HP <= 0){
 		alert('승리하였습니다.')
+	document.querySelector('.wrap').innerHTML=''
 }
 }
 
@@ -147,7 +149,7 @@ function body(){
 		}
 	if(user.HP <= 0){
 		alert('패배하였습니다.')
-		user.HP = 999999;
+	document.querySelector('.wrap').innerHTML=''
 		return false;
 	}
 }

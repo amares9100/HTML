@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+table tr td{
+	white-space: nowrap;               /*자동 줄바꿈 해제*/
+	overflow : hidden;				/*사이즈가 넘쳤을경우 내용 숨기기*/
+	text-overflow: ellipsis;		
+	/*text-overflow : 텍스트가 구역사이즈보다 커졌을때 모양 설정
+		ellipsis : ... : 넘친 텍스트를 ...으로 표시*/
+	
+	max-width: 100px; /* 반응형 최대 사이즈*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
