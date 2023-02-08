@@ -27,23 +27,28 @@ public class Ex_4 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int a = 0;
-		int b = 0;
-		int c = 0;
-		int d = 0;
-		
 		int N = sc.nextInt();
-		
-		if(N >10) {
-			d = N*10;
+		int y = 101;
+		int a = N;
+		int b, c;
+		if(N<10) {
+			N = N*10;
+			a = N;
 		}
 		
 		for(int i = 1 ; i > 0 ; i++) {
-			if(c == N) {
-				System.out.println(i);
+			
+			if(y != N) {
+				b = a/10;
+				c = a%10;
+				a = b+c;
+				a = c*10+a%10;
+			}
+			else if(y == N) {
+				System.out.println(i-1);
 				break;
 			}
-		
+			y = a;
 		
 		}
 	}
