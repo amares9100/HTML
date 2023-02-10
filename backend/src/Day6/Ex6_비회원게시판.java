@@ -1,8 +1,6 @@
 package Day6;
 
 
-
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -16,11 +14,9 @@ import java.util.StringTokenizer;
 public class Ex6_비회원게시판 {
 	public static void main(String[] args) throws IOException {
 		
-		FileInputStream fin = new FileInputStream("C:/Users/504/Desktop/비회원게시판.txt");
+		FileInputStream fs = new FileInputStream("C:/Users/504/Desktop/비회원게시판.txt");
 		FileOutputStream fout = new FileOutputStream("C:/Users/504/Desktop/비회원게시판.txt");
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fout));
-		
-		BufferedOutputStream bo = new BufferedOutputStream(new FileOutputStream("C:/Users/504/Desktop/비회원게시판.txt"));
 		BufferedReader br = new BufferedReader(new FileReader("C:/Users/504/Desktop/비회원게시판.txt"));
 		
 		Scanner sc = new Scanner(System.in);
@@ -29,15 +25,18 @@ public class Ex6_비회원게시판 {
 		// -1 : 쓰기
 		// -2 : 나가기
 		
-		String sty="";
-		
+		String str = " ";
+		byte[ ] readBuffer = new byte[fs.available()];
+        
 	board : while(true) {
 		
 		System.out.println("------------게시판------------");
 		System.out.println("번호	" + "내용	" + "제목	"+ "작성자	");
-		while( (sty = br.readLine()) != null) {
-			System.out.println(sty);
-		}
+		
+		while (fs.read( readBuffer ) != 0){
+			 System.out.println(new String(readBuffer));
+			}
+       
 		System.out.println("-----------------------------");
 				
 				
@@ -55,7 +54,7 @@ public class Ex6_비회원게시판 {
 			System.out.println("내용을 입력하세요.");
 			String scontent =  sc.next();
 			
-			String str = stitle+"\t"+sname+"\t"+sread+"\t"+scontent;
+			str += stitle+"\t"+sname+"\t"+sread+"\t"+scontent;
 			StringTokenizer st = new StringTokenizer(str , " ");
 			bw.write(st.nextToken()+"\n");
 			// 게시글 출력
