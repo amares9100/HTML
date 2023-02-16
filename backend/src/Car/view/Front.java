@@ -1,11 +1,11 @@
-package view;
+package Car.view;
 
 import java.util.Scanner;
 
-import controller.run;
-import model.대형;
-import model.소형;
-import model.중형;
+import Car.controller.run;
+import Car.model.대형;
+import Car.model.소형;
+import Car.model.중형;
 
 
 

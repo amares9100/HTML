@@ -1,6 +1,6 @@
-package controller;
+package Car.controller;
 
-import model.Car;
+import Car.model.Car;
 
 public class run {
 		public Car 대형 = new Car();

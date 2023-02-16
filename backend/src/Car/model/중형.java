@@ -1,4 +1,4 @@
-package model;
+package Car.model;
 
 public class 중형 extends Car{
 
