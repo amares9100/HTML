@@ -25,20 +25,26 @@ public class run {
 	void stop() {}
 	
 	// 들어온 result에 따라 각 차종별 가격 출력
-	public void price2(int result) {
+	public int price2(int result) {
 		if(result == 7) {	
 			
-			소형.price();
+			
+			int x = 소형.price();
+			return x;
 		}
 		else if(result == 6) {
 			
-			중형.price();
+			
+			int x = 중형.price();
+			return x;
 		}
 		else if(result == 5) {
 			
-			대형.price();
+			int x = 대형.price();
+			return x;
 		}
 		
+		return 0;
 	}
 
 }

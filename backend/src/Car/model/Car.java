@@ -1,22 +1,56 @@
 package Car.model;
 
+
+import Car.model.지역.대구;
+import Car.model.지역.대전;
+import Car.model.지역.부산;
+
 public class Car {
 
 	public String model;
 	public int km;
 	public int price;
 	public int 지역;
-
+	
+	
+	
+	
+	public String[] locations = {null,"대전","대구","부산","광주"};
+	public String location;
+	public int time;
+	public int distance;
+	
+	
+	public Car( int ch2) {
+		km=0;
+		
+		
+		if(ch2 == 1){distance = 대전.getInstance().getDistance(); }
+		else if(ch2 == 2){distance = 대구.getInstance().getDistance();}
+		else if(ch2 == 3){distance = 부산.getInstance().getDistance();}
+		
+		
+	}	
+	
+	
 	public Car() {
 		super();
 		
 	}
+	
+	// 추가
+	public Car(String model , int 지역) {
+		this.지역 = 지역;
+		this.model = model;
+	}
+	
 
 	public Car(String string, int km, int price , int 지역) {
 		this.model = string;
 		this.km = km;
 		this.price = price;
 		this.지역 = 지역;
+		
 	}
 	
 	public int price() {
@@ -35,5 +69,14 @@ public class Car {
 		}
 		else {return 0;}
 	
+	}
+	
+	public int getDistance() {
+		return distance;
+	}
+
+
+	public void setDistance(int distance) {
+		this.distance = distance;
 	}
 }
