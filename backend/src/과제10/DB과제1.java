@@ -22,7 +22,7 @@ public class DB과제1 {
 				System.out.println("DB이름을 입력하세요. : ");
 				String db = sc.next();
 				
-				System.out.println("id를 입력하세요. : ");
+				System.out.println("id를 입력하세요. : ");   
 				String id = sc.next();
 				
 				System.out.println("pw를 입력하세요. : ");
