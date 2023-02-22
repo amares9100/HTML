@@ -144,6 +144,7 @@ public class ProductDao {
 				ps.setInt(1, x);
 				ps.setInt(2, Controller.getInstance().user_basket.get(i).getPno());
 				ps.executeUpdate();
+				System.out.println("구매성공");
 				}
 				else { System.out.println("재고부족"); break;}
 			}return true;

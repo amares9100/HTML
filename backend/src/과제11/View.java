@@ -175,7 +175,7 @@ public class View {
 					Controller.getInstance().user_basket.get(i).getPprice());
 		}
 		Controller.getInstance().user_sell();
-		System.out.println("구매하였습니다.");
+		Controller.getInstance().user_basket=null;
 	}
 	
 	
