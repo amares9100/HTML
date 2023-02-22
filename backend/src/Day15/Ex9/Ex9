@@ -1,0 +1,62 @@
+start 클래스
+
+view 클래스
+
+controller 클래스
+
+boarddao 클래스
+
+boarddto 클래스
+
+DTO : 이동객체 [서로다른 레이더간 이동할때 사용하는 객체]
+DAO : 접근객체 [ 실제 데이터 접근할때 사용하는 객체 = DB , File등]
+
+
+start 클래스  ->>>>>>>>view 클래스 --------->> controller 클래스 <-------BoardDto------> BoardDao클래스
+							 
+
+ex) 회원가입
+	1. view 에서 회원정보 입력
+		2. controller 에서 유효성검사후 객체화
+			3. DAO에서 객체 저장(SQL처리) 결과값 controller리턴
+		4.받은 리턴값을 view로 리턴
+	5. 리턴결과 출력
+	
+	
+
+	
+	
+	
+순서도
+1. DB모델링
+	1. DB생성
+	2. DB선택
+	3. 테이블 생성
+
+2. DTO모델링[DB모델링과 동일]
+	1. 필드 : DB 테이블의 필드와 동일하게 + private 
+	2. 생성자 : 빈생성자 , 풀생성자 , 필요에따라 더 만들기
+	3. 메소드 : toString() , get/set 메소드 , 필요에따라 더 만들기
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
