@@ -1,23 +1,27 @@
 package jspweb.index;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jspweb.Model.Dao;
+
 /**
- * Servlet implementation class indextest
+ * Servlet implementation class q1
  */
-@WebServlet("/indextest")
-public class indextest extends HttpServlet {
+@WebServlet("/q1")
+public class q1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public indextest() {
+    public q1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,16 +30,24 @@ public class indextest extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setCharacterEncoding("UTF-8");
+		
+		// 과제1
+		ArrayList<String> result = Dao.getInstance().getQdata();
+		response.getWriter().print(result);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		
+		// 과제1
+		String qdata = request.getParameter("qdata");
+		
+		Dao.getInstance().setQdata(qdata);
+		
 	}
 
 }
