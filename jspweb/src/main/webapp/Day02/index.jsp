@@ -30,7 +30,33 @@
 	
 	</div>
 	
+	<div>================================================================================</div>
 	
+	
+	<h3>과제2</h3>
+	이름[문자열] : <input type="text" class="qdata1"><br/>
+	전화번호[문자열] :<input type="text" class="qdata2"><br/>
+	키[실수] : <input type="text" class="qdata3"><br/>
+	나이[정수] : <input type="number" class="qdata4"><br/>
+	등록일자[날짜] : <input type="date" class="qdata5"><br>
+	성별[선택버튼] : <input type="radio" name="qdata6" value="남">남
+					<input type="radio" name="qdata6" value="여">여<br/>
+	개인정보동의[체크상자] : <input type="checkbox" class="qdata7"><br/>
+	사는지역[목록상자] : <select class="qdata8">
+						<option>안산</option><option>수원</option><option>성남</option>
+					</select><br/>
+	자기소개[긴글] : <textarea class="qdata9"></textarea>
+	<button type="button" onclick="ex2()">전송</button>
+
+	
+	
+	
+	
+
+	<h3>과제2</h3>
+	<div class="getData2">
+	
+	</div>
 	
 	
 	

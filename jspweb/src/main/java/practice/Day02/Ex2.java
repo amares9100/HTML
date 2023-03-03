@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * Servlet implementation class Ex2
  */
@@ -32,7 +34,13 @@ public class Ex2 extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		ArrayList<Dto> list = Dao.getInstance().getData2();
-		response.getWriter().print(list);
+		
+			// JAVA  ----> JSON
+		ObjectMapper objectMapper = new ObjectMapper();
+		String jsonArray = objectMapper.writeValueAsString(list);
+		
+		response.setContentType("application/json");
+		response.getWriter().print(jsonArray);
 		
 		//ArrayList<Object> list = Dao.getInstance().getData();
 		//response.getWriter().print(list);
