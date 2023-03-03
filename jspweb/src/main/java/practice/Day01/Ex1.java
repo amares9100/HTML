@@ -1,4 +1,4 @@
-package jspweb.index;
+package practice.Day01;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,8 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.JspApplicationContext;
 
-import jspweb.Model.Dao;
+import practice.Day01.Dao;
 
 /**
  * Servlet implementation class Ex1
@@ -17,7 +18,6 @@ import jspweb.Model.Dao;
 @WebServlet("/Ex1")
 public class Ex1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     /**
      * @see HttpServlet#HttpServlet()
      */

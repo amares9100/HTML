@@ -6,7 +6,7 @@ function 예제1( ){
 	console.log( data );
 	
 	$.ajax({
-		url : "/jspweb/Ex1" ,		// 통신할 서블릿 주소 
+		url : "/practice/Day01/Ex1" ,		// 통신할 서블릿 주소 
 		method : "post" , 				// HTTP 메소드 
 		data : { "data" : data } , 		// 데이터 보내기 
 		success : function(result){   	// 데이터 받기 
@@ -18,7 +18,7 @@ function 예제1( ){
 예제2( );
 function 예제2( ){
 	$.ajax({
-		url : "/jspweb/Ex1" ,		// 통신할 서블릿 주소 
+		url : "/practice/Day01/Ex1" ,		// 통신할 서블릿 주소 
 		method : "get" , 				// HTTP 메소드 
 		//data : { } , 		// 데이터 보내기 
 		success : function(result){   	// 데이터 받기 
@@ -34,7 +34,7 @@ function q1(){
 	let qdata = document.querySelector('.qdata').value;
 	//console.log(data);
 		$.ajax({
-		url : "/jspweb/q1" ,		// 통신할 서블릿 주소 
+		url : "/practice/Day01/q1" ,		// 통신할 서블릿 주소 
 		method : "post" , 				// HTTP 메소드 
 		data : { "qdata" : qdata } , 		// 데이터 보내기 
 		//success : function(result){ }  	// 데이터 받기 
@@ -45,7 +45,7 @@ function q1(){
 q2( );
 function q2( ){
 	$.ajax({
-		url : "/jspweb/q1" ,		// 통신할 서블릿 주소 
+		url : "/practice/Day01/q1" ,		// 통신할 서블릿 주소 
 		method : "get" , 				// HTTP 메소드 
 		//data : { } , 		// 데이터 보내기 
 		success : function(result){   	// 데이터 받기 

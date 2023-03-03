@@ -1,4 +1,4 @@
-package jspweb.index;
+package practice.Day01;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jspweb.Model.Dao;
+import practice.Day01.Dao;
 
 /**
  * Servlet implementation class q1
