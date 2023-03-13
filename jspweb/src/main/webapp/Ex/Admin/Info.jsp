@@ -8,7 +8,7 @@
 </head>
 <body>
 
-
+	<%@ include file= "../header.jsp" %>
 	<h3>모든 회원 명단</h3>
 	<table class="userlist" border="1"></table>
 	

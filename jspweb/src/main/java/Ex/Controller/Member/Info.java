@@ -94,12 +94,102 @@ public class Info extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+	/*
+		// 로그인된 회원 수정
+		String mid = (String) request.getSession().getAttribute("login");
+		String mpwd = request.getParameter("mpwd");
+		String newmpwd = request.getParameter("newmpwd");
+		String memail = request.getParameter("memail");
+		
+		boolean result = MemberDao.getInstance().Update(mid, mpwd, memail, newmpwd);
+		
+		response.getWriter().print(result);
+	*/
+		String path = request.getSession().getServletContext().getRealPath("/Ex/Member/pimg");
+		MultipartRequest Multi = new MultipartRequest(
+				request , 						// 요청방식
+				path , 					// 첨부파일 가져와서 저장할 폴더
+				//수업에서는 서버로 올림 				// 1.프로젝트[GIT] / 2.서버[WORKSPACE]
+				1024*1024*10 ,					// 첨부파일 허용 범위 용량[바이트단위]		
+				"UTF-8" ,						// 인코딩
+				new DefaultFileRenamePolicy() 	// 동일한 첨부파일명이 있으면 뒤에 숫자 붙여짐	
+				);
+		
+		String mid = (String)request.getSession().getAttribute("login");	System.out.println( "mid:"+mid);
+		String mpwd = Multi.getParameter("mpwd");							System.out.println( "mpwd:"+mpwd);
+		String newmpwd = Multi.getParameter("newmpwd");						System.out.println( "newmpwd:"+newmpwd);
+		String memail = Multi.getParameter("memail");						System.out.println( "memail:"+memail);
+		String newmimg = Multi.getFilesystemName("newmimg");				System.out.println( "newmimg:"+newmimg);
+		String defaultimg = Multi.getParameter("defaultimg");				System.out.println( "defaultimg:"+defaultimg);
+		
+		// 3. 만약에 새로운 첨부파일이 없으면 
+		if( newmimg == null ) { // 기존 이미지 파일 그대로 사용 
+			newmimg = MemberDao.getInstance().getMember( mid ).getMimg();
+		}
+		// 3. 만약에 기본프로필 사용체크 했으면
+		if(  defaultimg.equals( "true" ) ) { // 기본프로필 사용 
+			newmimg = "X.jpg";
+		}
+		// *추후: 프로필 변경시 기존프로필 실제파일을 서버에서 삭제
+		
+		boolean result =  MemberDao.getInstance().Update(mid, mpwd, newmpwd, memail, newmimg);
+ 		System.out.println(result);
+ 		response.getWriter().print(result);
+ 		
+ 		
+		
 	}
 
 	// 회원탈퇴
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		// 로그인된 회원 삭제
+		String mid = (String)request.getSession().getAttribute("login");
+		String mpwd = request.getParameter("mpwd");	
+		System.out.println(mid);
+			
+			
+		boolean result = MemberDao.getInstance().setDelete(mid , mpwd);
+		
+		response.getWriter().print(result);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
