@@ -125,8 +125,51 @@ public class CompanyDao extends Dao{
 			
 			
 			return false;
+			
+		}
+		
+		
+		
+		
+		
+		public ArrayList<CompanyDto> grade_list(String grade){
+			String sql = "select * from workers where grade=?";
+			ArrayList<CompanyDto> list = new ArrayList<>();
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, grade);
+				rs = ps.executeQuery();
+				
+				while(rs.next()) {
+					CompanyDto dto = new CompanyDto(rs.getInt(1), rs.getString(2), rs.getString(3), 
+							rs.getString(4), rs.getString(5),rs.getString(6),
+							rs.getString(7),rs.getString(8), rs.getString(9));
+					list.add(dto);
+				}
+			} catch (Exception e) {System.out.println(e);}
+			return list;
+		}
+		
+		public ArrayList<CompanyDto> retire_list(){
+			String sql = "select * from workers where retire";
+			ArrayList<CompanyDto> list = new ArrayList<>();
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				
+				while(rs.next()) {
+					CompanyDto dto = new CompanyDto(rs.getInt(1), rs.getString(2), rs.getString(3), 
+							rs.getString(4), rs.getString(5),rs.getString(6),
+							rs.getString(7),rs.getString(8), rs.getString(9));
+					list.add(dto);
+					
+				}
+			} catch (Exception e) {System.out.println(e);}
+			return list;
 		}
 }
+
+
 
 
 

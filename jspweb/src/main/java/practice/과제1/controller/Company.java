@@ -54,6 +54,27 @@ public class Company extends HttpServlet {
 			response.setContentType("application/json");
 			response.getWriter().print(jsonArray);
 		}
+		else if(state.equals("3")) {
+			String grade =request.getParameter("grade");
+			ArrayList<CompanyDto> list = CompanyDao.getInstance().grade_list(grade);
+			
+			ObjectMapper objectMapper = new ObjectMapper();
+			String jsonArray = objectMapper.writeValueAsString(list);
+			
+			//System.out.println(jsonArray);
+			response.setContentType("application/json");
+			response.getWriter().print(jsonArray);
+		}
+		else if(state.equals("4")) {
+			ArrayList<CompanyDto> list = CompanyDao.getInstance().retire_list();
+			
+			ObjectMapper objectMapper = new ObjectMapper();
+			String jsonArray = objectMapper.writeValueAsString(list);
+			
+			//System.out.println(jsonArray);
+			response.setContentType("application/json");
+			response.getWriter().print(jsonArray);
+		}
 		
 	}
 

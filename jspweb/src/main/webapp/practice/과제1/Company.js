@@ -56,7 +56,7 @@ function print(){
 							<td> ${o.department}</td>
 							<td> ${o.joinDate}</td>
 							<td> ${o.retire == null ? ' ' : o.retire}</td>
-							<td> ${o.reason == null ? ' ' : o.retire}</td>
+							<td> ${o.reason == null ? ' ' : o.reason}</td>
 							<td> <button type="button" onclick="upDate(${o.wno})">수정</button><button type="button" onclick="openModal2(${o.wno})">삭제</button></td>
 						</tr>`;
 			})
@@ -136,11 +136,32 @@ function upDate(wno){
 							<input type="file"  class="picture" name="picture">
 						</td>
 								<td> <input type="text" value="${r.name}" name="name"></td>
-								<td>  <input type="text" value="${r.grade}" name="grade"></td>
-								<td>  <input type="text" value="${r.worker}" name="worker"></td>
-								<td>  <input type="text" value="${r.department}" name="department"></td>
-								<td>  <input type="text" value="${r.joinDate}" name="join"></td>
-								<td>  <input type="text" value="${r.retire}" name="retire"></td>
+								<td> <div>${r.grade}</div>
+									<select class="grade" name="grade"> 
+										<option value="사원" > 사원 </option>
+										<option value="대리" > 대리 </option>
+										<option value="부장" > 부장 </option>
+										<option value="과장" > 과장 </option>
+										<option value="대표" > 대표 </option>
+									</select> 
+								</td>
+								<td> <div>${r.worker}</div>
+									<select class="worker" name="worker"> 
+										<option value="일용직" > 일용직 </option>
+										<option value="정규직" > 정규직 </option>
+										<option value="임원" > 임원 </option>
+									</select> 
+								</td>
+								<td>  <div>${r.department}</div>
+									<select class="department" name="department"> 
+										<option value="인사팀" > 인사팀 </option>
+										<option value="영업팀"> 영업팀 </option>
+										<option value="개발팀" > 개발팀 </option>
+									</select> 
+								</td>
+								<td>  <div>${r.joinDate}</div>
+								<input type="date" value="${r.joinDate}" name="join"></td>
+								<td>  <input type="date" value="${r.retire}" name="retire"></td>
 								<td>  <input type="text" value="${r.reason}" name="reason"></td>
 					
 				</tr>`;
@@ -178,6 +199,98 @@ function closeModal(){
 	document.querySelector('.modal_wrap').style.display = 'none';
 }
 
+function all_list(){
+	print();
+}
+
+function grade(){
+	let grade = document.querySelector('.list_grade').value;
+	
+	$.ajax({
+		url : "/jspweb/Company" ,
+		method : "get" ,
+		data : {"state" : 3,
+				"grade" : grade	} ,
+		success : (r) =>{console.log('ajax확인')
+		
+		let html = 
+						`<tr>
+							<th> 사원번호 </th>
+							<th> 사원사진 </th>
+							<th> 사원명 </th>
+							<th> 직급 </th>
+							<th> 고용형태 </th>
+							<th> 부서 </th>
+							<th> 입사일 </th>
+							<th> 퇴사일 </th>
+							<th> 퇴사사유 </th>
+							<th> 비고 </th>
+						</tr>`;
+			
+			
+			r.forEach((o , i ) => {
+				//<img src="/jspweb/Ex/Member/pimg/${o.mimg == null ? 'X.jpg' : o.mimg}" width="20%">
+				html += 
+						`<tr>
+							<td> ${o.wno}</td>
+							<td><img src="/jspweb/practice/과제1/img/${o.picture == null ? 'X.jpg' : o.picture}" width="20%"></td>
+							<td> ${o.name}</td>
+							<td> ${o.grade}</td>
+							<td> ${o.worker}</td>
+							<td> ${o.department}</td>
+							<td> ${o.joinDate}</td>
+							<td> ${o.retire == null ? ' ' : o.retire}</td>
+							<td> ${o.reason == null ? ' ' : o.reason}</td>
+							<td> <button type="button" onclick="upDate(${o.wno})">수정</button><button type="button" onclick="openModal2(${o.wno})">삭제</button></td>
+						</tr>`;
+			})
+			document.querySelector('.print').innerHTML = html;
+			}
+		});
+}
+
+function retire(){
+	$.ajax({
+		url : "/jspweb/Company" ,
+		method : "get" ,
+		data : {"state" : 4} ,
+		success : (r) =>{console.log('ajax확인')
+		
+		let html = 
+						`<tr>
+							<th> 사원번호 </th>
+							<th> 사원사진 </th>
+							<th> 사원명 </th>
+							<th> 직급 </th>
+							<th> 고용형태 </th>
+							<th> 부서 </th>
+							<th> 입사일 </th>
+							<th> 퇴사일 </th>
+							<th> 퇴사사유 </th>
+							<th> 비고 </th>
+						</tr>`;
+			
+			
+			r.forEach((o , i ) => {
+				//<img src="/jspweb/Ex/Member/pimg/${o.mimg == null ? 'X.jpg' : o.mimg}" width="20%">
+				html += 
+						`<tr>
+							<td> ${o.wno}</td>
+							<td><img src="/jspweb/practice/과제1/img/${o.picture == null ? 'X.jpg' : o.picture}" width="20%"></td>
+							<td> ${o.name}</td>
+							<td> ${o.grade}</td>
+							<td> ${o.worker}</td>
+							<td> ${o.department}</td>
+							<td> ${o.joinDate}</td>
+							<td> ${o.retire == null ? ' ' : o.retire}</td>
+							<td> ${o.reason == null ? ' ' : o.reason}</td>
+							<td> <button type="button" onclick="upDate(${o.wno})">수정</button><button type="button" onclick="openModal2(${o.wno})">삭제</button></td>
+						</tr>`;
+			})
+			document.querySelector('.print').innerHTML = html;
+			}
+		});
+}
 
 
 

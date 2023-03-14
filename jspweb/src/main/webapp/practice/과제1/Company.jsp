@@ -43,7 +43,7 @@
 			</div>
 			
 			<div> 입사일
-				  <input type="text" class="join" name="join">
+				  <input type="date" class="join" name="join">
 			</div>
 			
 			<div> 사원 사진
@@ -51,7 +51,7 @@
 			</div>
 			
 			<div> 퇴사일
-				  <input type="text" class="retire" name="retire">
+				  <input type="date" class="retire" name="retire">
 			</div>
 			
 			<div> 퇴사 사유
@@ -62,9 +62,19 @@
 		<button type="button" onclick="regist()">등록</button>
 	 </form>
 	
-	------------------------------------------------
+	============================================================================================
 	<br/>
 		<h3> 출력란 </h3>
+		<button type="button" onclick="all_list()">전체출력</button>  
+		<select class="list_grade" name="list_grade" onchange="grade()"> 
+			<option> 직급 </option>
+			<option value="사원" > 사원 </option>
+			<option value="대리" > 대리 </option>
+			<option value="부장" > 부장 </option>
+			<option value="과장" > 과장 </option>
+			<option value="대표" > 대표 </option>
+		</select> 
+		<button type="button" onclick="retire()">퇴사</button>  
 		<table class="print" border="1">
 		</table>
 	<div>
