@@ -26,7 +26,8 @@
 			</div>
 			<!-- 본메뉴 -->
 			<ul class="mainmenu">
-				<li> <a href="#"> 기능메뉴1 </a> </li>
+				<li> <a href="/jspweb/Ex/index.jsp"> HOME </a> </li>
+				<li> <a href="/jspweb/Ex/board/list.jsp"> Board </a> </li>
 				<li> <a href="#"> 기능메뉴2 </a> </li>
 				<li> <a href="#"> 기능메뉴3 </a> </li>
 				<li> <a href="#"> 기능메뉴4 </a> </li>

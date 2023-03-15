@@ -10,8 +10,8 @@ function getLogin(){
 		method : "get" , 
 		success : (r) => {
 			memberInfo = r;	// <--- 응답 결과를 전역변수 옮기기[ 왜?? 다른 함수에서 쓸려고 ]
-			console.log('통신성공');
-			console.log( r );	// Dto1개회원 --> r객체1개 회원
+			//console.log('통신성공');
+			//console.log( r );	// Dto1개회원 --> r객체1개 회원
 			
 			let html = '';	// 1. html 구성 
 			if( r.mid == null ){	// 2. 로그인 안했으면 
