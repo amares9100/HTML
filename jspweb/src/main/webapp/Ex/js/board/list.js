@@ -1,15 +1,32 @@
 /**
  * 
  */
-
- console.log('list 확인')
+let pageobject = {
+	page : 1 ,
+	key : "" ,
+	keyword : "" ,
+	type : 1 ,
+	cno : document.querySelector('.cno').value ,
+	listsize : 3
+}
+ console.log(pageobject.listsize)
  
- getlist();
- function getlist(){
+ 
+ 
+ let cnamehtml = '';
+ if(pageobject.cno == 1){cnamehtml = '공지사항';}
+ if(pageobject.cno == 2){cnamehtml = '커뮤니티';}
+ if(pageobject.cno == 3){cnamehtml = 'QnA';}
+ if(pageobject.cno == 4){cnamehtml = '노하우';}
+document.querySelector('.cname').innerHTML = cnamehtml;
+ 
+ getlist(1);
+ function getlist(page){
+	 pageobject.page = page;
 	 $.ajax({
 		url : "/jspweb/BoardWrite",
 		method : "get" ,
-		data : {"type" :1},
+		data : pageobject,
 		success : (r)=>{
 			console.log(r)
 			let html = 
@@ -24,7 +41,7 @@
 						</tr>`;
 			
 			
-			r.forEach((o , i ) => {
+			r.boardList.forEach((o , i ) => {
 				
 				html += 
 						`<tr>
@@ -38,11 +55,55 @@
 						</tr>`;
 			})
 			document.querySelector('.boardTable').innerHTML = html;
+			//============================================================//
+			html = '';
+			// 이전 버튼
+			html += page <= 1 ?
+					`<button onclick="getlist(${page})" type="button"> 이전 </button>
+					` : 
+					`<button onclick="getlist(${page-1})" type="button"> 이전 </button>
+					`;
+			
+			for(let i = r.startbtn ; i <=r.endbtn ; i++){
+				html += `
+					<button onclick="getlist(${i})" type="button"> ${i} </button>
+					`
+			}
+			// 이후 버튼
+			html += page >= r.totalpage ? 
+					`<button onclick="getlist(${page})" type="button"> 다음 </button>` : 
+					`<button onclick="getlist(${page+1})" type="button"> 다음 </button>`;
+			
+			
+			document.querySelector('.pagebox').innerHTML = html;
+			document.querySelector('.searchcount').innerHTML = `출력 게시물수 : ${r.totalsize}`;
 			}
 	})
 	
 }
 
+
+
+function getsearch(){
+	
+	pageobject.key = document.querySelector('.key').value;
+	pageobject.keyword = document.querySelector('.keyword').value;
+	
+	getlist(1);
+	
+}
+
+function setsearch(){
+	pageobject.key = '';
+	pageobject.keyword = '';
+	
+	getlist(1);
+}
+ 
+ function listsize(){
+	 pageobject.listsize = document.querySelector('.printkey').value;
+	 getlist(1);
+ }
  
  /*
  
