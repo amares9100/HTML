@@ -1,5 +1,6 @@
 package Ex.Controller.Board;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -163,6 +164,19 @@ public class BoardWrite extends HttpServlet {
 		String btitle = multi.getParameter("btitle");
 		String bcontent = multi.getParameter("bcontent");
 		String bfile = multi.getFilesystemName("bfile");
+		String oldbfile = BoardDao.getInstance().getBoard(bno).getBfile();
+		if(bfile == null) {
+			bfile = oldbfile;
+		}else {
+			
+			String odlpath = request.getSession().getServletContext().getRealPath("/Ex/js/board/bfile/"+oldbfile);
+			File file = new File(odlpath);
+			if(file.exists()) file.delete();
+		}
+		
+		
+		
+		
 		
 		BoardDto dto = new BoardDto(bno, btitle, bcontent, bfile, cno);
 		
@@ -177,6 +191,28 @@ public class BoardWrite extends HttpServlet {
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		int type = Integer.parseInt(request.getParameter("type"));
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		
+		String bfile = BoardDao.getInstance().getBoard(bno).getBfile();
+		boolean result = true;
+		
+		if(type == 1) {
+			result = BoardDao.getInstance().bdelete(bno);
+		}
+		else if(type == 2) {
+			result = BoardDao.getInstance().bfiledelete(bno);
+		}
+		
+		if(result) {
+			String path = request.getSession().getServletContext().getRealPath("/Ex/js/board/bfile/"+bfile);
+			File file = new File(path);
+			if(file.exists()) file.delete();
+			response.getWriter().print(result);
+		}
+		
+		
+		
 	}
 
 }

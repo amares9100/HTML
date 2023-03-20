@@ -34,9 +34,11 @@
 					</select><br>
 			제목 : <input type="text" name="btitle" class="btitle"><br>
 			내용 : <textarea rows="3" cols="3" name="bcontent" class="bcontent"></textarea><br>
-			첨부파일 : <span class="oldbfile"></span><br>
-			새로운 첨부파일 : <input type="file" name="bfile" class="bfile"><br>
-			<button onclick="bupdate()" type="button">쓰기</button>
+			<div class="file_box">
+			
+			</div>
+			<button onclick="bupdate()" type="button">수정</button>
+			
 		</form>
 			
 	</div>

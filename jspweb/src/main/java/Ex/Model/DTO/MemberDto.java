@@ -67,6 +67,19 @@ public class MemberDto {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
+	
+	public MemberDto(int mno, String mid, String mpwd, String mimg, String memail, int mpoint) {
+		super();
+		this.mno = mno;
+		this.mid = mid;
+		this.mpwd = mpwd;
+		this.mimg = mimg;
+		this.memail = memail;
+		this.mpoint = mpoint;
+	}
+
 	public MemberDto(int mno, String mid, String mpwd, String mimg, String memail) {
 		super();
 		this.mno = mno;

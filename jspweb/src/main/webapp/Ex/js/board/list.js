@@ -29,54 +29,50 @@ document.querySelector('.cname').innerHTML = cnamehtml;
 		data : pageobject,
 		success : (r)=>{
 			console.log(r)
-			let html = 
-						`<tr>
-							<th width="10%"> 번호 </th>
-							<th width="30%"> 제목 </th>
-							<th width="10%"> 작성자 </th>
-							<th width="20%"> 작성일 </th>
-							<th width="10%"> 조회수 </th>
-							<th width="10%"> 좋아요 </th>
-							<th width="10%"> 싫어요 </th>
-						</tr>`;
-			
+			let html = '';
+						
 			
 			r.boardList.forEach((o , i ) => {
 				
-				html += 
-						`<tr>
-							<td>${o.bno}</td>
-							<td><a href="/jspweb/Ex/board/view.jsp?bno=${o.bno}">${o.btitle}</a></td>
-							<td>${o.mid}</td>
-							<td>${o.bdate}</td>
-							<td>${o.bview}</td>
-							<td>${o.bup}</td>
-							<td>${o.bdown}</td>
-						</tr>`;
+				html += `<div >
+					<img src="/jspweb/Ex/Member/pimg/${ o.mimg == null ? 'X.jpg' : o.mimg }" class="hpimg">
+					<span class="mid">${o.mid}</span>
+					<span class="bdate"> ${o.bdate} </span>
+				</div>
+				<div>
+					<div class="btitle"><a href="/jspweb/Ex/board/view.jsp?bno=${o.bno}">${o.btitle}</a></div>
+				</div>
+				<div class="contentbottom">
+					<span><i class="far fa-eye"></i> <span class="bview">${o.bview}</span></span>
+					<span><i class="far fa-thumbs-up"></i> <span class="bup">${o.bup}</span>   </span>
+					<span><i class="far fa-thumbs-down"></i> <span class="bdown">${o.bdown}</span>   </span>
+					<span><i class="far fa-comment-dots"></i> <span class="bview">${o.rcount}</span>   </span>
+				</div>`
+						
 			})
 			document.querySelector('.boardTable').innerHTML = html;
 			//============================================================//
 			html = '';
 			// 이전 버튼
 			html += page <= 1 ?
-					`<button onclick="getlist(${page})" type="button"> 이전 </button>
+					`<button class="pa" onclick="getlist(${page})" type="button"> < </button>
 					` : 
-					`<button onclick="getlist(${page-1})" type="button"> 이전 </button>
+					`<button class="pa" onclick="getlist(${page-1})" type="button"> < </button>
 					`;
 			
 			for(let i = r.startbtn ; i <=r.endbtn ; i++){
 				html += `
-					<button onclick="getlist(${i})" type="button"> ${i} </button>
+					<button class="pa" onclick="getlist(${i})" type="button"> ${i} </button>
 					`
 			}
 			// 이후 버튼
 			html += page >= r.totalpage ? 
-					`<button onclick="getlist(${page})" type="button"> 다음 </button>` : 
-					`<button onclick="getlist(${page+1})" type="button"> 다음 </button>`;
+					`<button class="pa" onclick="getlist(${page})" type="button"> > </button>` : 
+					`<button class="pa" onclick="getlist(${page+1})" type="button"> > </button>`;
 			
 			
 			document.querySelector('.pagebox').innerHTML = html;
-			document.querySelector('.searchcount').innerHTML = `출력 게시물수 : ${r.totalsize}`;
+			document.querySelector('.searchcount').innerHTML = `게시글 수 : ${r.totalsize}`;
 			}
 	})
 	

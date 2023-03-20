@@ -1,4 +1,9 @@
 console.log('write확인')
+ $(document).ready(function() {
+        $('#summernote').summernote(
+			{height : 300}
+		);
+    });
 
 if(memberInfo.mid == null){
 	alert('로그인해주세요.')

@@ -40,7 +40,7 @@ function getLogin(){
 			
 			
 				if( r.mid == 'admin'){ // 관리자이면 
-					html += `<a href="/jspweb/Ex/Admin/info.jsp">관리자</a>`
+					html += `<a href="/jspweb/Ex/Admin/Info.jsp">관리자</a>`
 				}
 			
 			}

@@ -34,6 +34,10 @@
 			<button class="signupbtn" onclick="login()" type="button"> 로그인 </button>
 		</form>
 	</div>
+	<div>
+	<h3>일반 : qwe1234 / qwe1234</h3><br>
+	<h3>관리자 : admin / admin123</h3>
+	</div>
 	
 	<!-- 정의 js  -->	
 	<script src="/jspweb/Ex/js/login.js" type="text/javascript"></script>

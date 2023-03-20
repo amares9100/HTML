@@ -1,4 +1,4 @@
-package Ex.Controller.Admin;
+package Ex.Controller.Board;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,89 +11,94 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import Ex.Model.DTO.AdminDto;
-import Ex.Model.DTO.MemberDto;
-import Ex.Model.DAO.AdminDao;
 import Ex.Model.DAO.BoardDao;
 import Ex.Model.DAO.MemberDao;
+import Ex.Model.DTO.ReplyDto;
 
 /**
- * Servlet implementation class Admin
+ * Servlet implementation class Reply
  */
-@WebServlet("/Admin")
-public class Admin extends HttpServlet {
+@WebServlet("/Ex/Reply")
+public class Reply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Admin() {
+    public Reply() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		int page = Integer.parseInt(request.getParameter("page"));
-		String key = request.getParameter("key");
-		String keyword = request.getParameter("keyword");
+		int bno = Integer.parseInt(request.getParameter("bno"));
 		int type = Integer.parseInt(request.getParameter("type"));
-		int listsize = Integer.parseInt(request.getParameter("listsize"));
-		int startrow = (page-1)*listsize;
 		
-		// page 버튼 출력
-		
-		//int totalsize = BoardDao.getInstance().gettotalsize();
-		
-		int totalsize = AdminDao.getInstance().getMembertotalsize(key, keyword);
-		int totalpage = totalsize% listsize == 0 ? totalsize/listsize : totalsize/listsize+1;
-		
-		int btnsize = 5;
-		int startbtn = ((page-1) / btnsize) * btnsize+1;
-		int endbtn = startbtn +btnsize-1;
-		if(endbtn > totalpage) {
-			endbtn = totalpage;
+		int rindex =0;
+		if(type == 1) {
+			
 		}
-		System.out.println("startrow " + startrow);
-		System.out.println("listsize " + listsize);
-		
-		System.out.println("totalsize " + totalsize);
-		System.out.println("totalpage " + totalpage);
-		System.out.println("startbtn " + startbtn);
-		System.out.println("endbtn " + endbtn);
+		else if(type == 2) {
+			rindex = Integer.parseInt(request.getParameter("rindex"));
+		}
 		
 		
-		
-		ArrayList<MemberDto> result = AdminDao.getInstance().getmemberlist(startrow, listsize, key, keyword);
-		System.out.println("응답 : "+result);
-		
-		AdminDto addto = new AdminDto(page, listsize, startrow, totalsize, totalpage, btnsize, startbtn, endbtn, result);
-		System.out.println(addto.toString());
+		ArrayList<ReplyDto> result =  BoardDao.getInstance().getReplyList(bno , rindex);
 		
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonArray = mapper.writeValueAsString(addto);
+		String jsonArray = mapper.writeValueAsString(result);
 		
 		response.setContentType("application/json");
 		response.getWriter().print(jsonArray);
-		
-	}
+		}
 
-	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		
+		String rcontent = request.getParameter("rcontent");
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		int mno = MemberDao.getInstance().getMno((String) request.getSession().getAttribute("login")) ;
+		int type = Integer.parseInt(request.getParameter("type"));
+		
+		ReplyDto dto = null;
+		if(type == 1) {
+			dto = new ReplyDto(rcontent, mno, bno);
+		}
+		else if(type == 2) {
+			int rindex = Integer.parseInt(request.getParameter("rindex"));
+			dto = new ReplyDto(rcontent, mno, bno);
+			dto.setRindex(rindex);
+		}
+		
+		
+		
+		boolean result = BoardDao.getInstance().rwrite(dto);
+		
+		response.getWriter().print(result);
+		
 	}
 
-	
+	/**
+	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
+	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 	}
 
-	
+	/**
+	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
+	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");

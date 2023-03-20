@@ -1,5 +1,8 @@
 package Ex.Model.DTO;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BoardDto {
 	private int bno;		
 	private String btitle;		
@@ -12,6 +15,8 @@ public class BoardDto {
 	private int mno;	
 	private int cno;
 	private String mid;
+	private String mimg;
+	private int rcount;
 	
 	
 	
@@ -26,6 +31,75 @@ public class BoardDto {
 	
 	
 	
+
+	public String getMimg() {
+		return mimg;
+	}
+
+
+
+
+
+
+
+
+	public void setMimg(String mimg) {
+		this.mimg = mimg;
+	}
+
+
+
+
+
+
+
+
+	public int getRcount() {
+		return rcount;
+	}
+
+
+
+
+
+
+
+
+	public void setRcount(int rcount) {
+		this.rcount = rcount;
+	}
+
+
+
+
+
+
+
+
+	public BoardDto(int bno, String btitle, String bcontent, String bfile, String bdate, int bview, int bup, int bdown,
+			int mno, int cno, String mid, String mimg, int rcount) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.bdate = bdate;
+		this.bview = bview;
+		this.bup = bup;
+		this.bdown = bdown;
+		this.mno = mno;
+		this.cno = cno;
+		this.mid = mid;
+		this.mimg = mimg;
+		this.rcount = rcount;
+	}
+
+
+
+
+
+
+
 
 	public BoardDto(int bno, String btitle, String bcontent, String bfile, int cno) {
 		super();
@@ -78,7 +152,16 @@ public class BoardDto {
 		this.btitle = btitle;
 		this.bcontent = bcontent;
 		this.bfile = bfile;
-		this.bdate = bdate;
+		
+		// 오늘 날짜와 작성일이 동일하면 시간표기 아니면 날짜표기
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String now = sdf.format(date);
+		if(now.split(" ")[0].equals(bdate.split(" ")[0])){
+			this.bdate = bdate.split(" ")[1];
+		}
+		else {this.bdate = bdate.split(" ")[0];}
+		
 		this.bview = bview;
 		this.bup = bup;
 		this.bdown = bdown;

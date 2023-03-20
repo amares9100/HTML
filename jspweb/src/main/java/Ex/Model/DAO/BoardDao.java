@@ -1,8 +1,10 @@
 package Ex.Model.DAO;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import Ex.Model.DTO.BoardDto;
+import Ex.Model.DTO.ReplyDto;
 
 public class BoardDao extends Dao{
 	private static BoardDao dao = new BoardDao();
@@ -35,14 +37,11 @@ public class BoardDao extends Dao{
 		
 		String sql = "";
 		if(key.equals("") && keyword.equals("")) {
-			sql = "select b.* , m.mid from member m natural join board b where b.cno="+cno+"  order by b.bdate desc limit ? , ?";
+			sql = "select b.* , m.mid , m.mimg from member m natural join board b where b.cno="+cno+"  order by b.bdate desc limit ? , ?";
 		}
 		else {
-			sql = "select b.* , m.mid from member m natural join board b where "+key+" like '%"+keyword+"%' and b.cno="+cno+" order by b.bdate desc limit ? , ?";
+			sql = "select b.* , m.mid , m.mimg from member m natural join board b where "+key+" like '%"+keyword+"%' and b.cno="+cno+" order by b.bdate desc limit ? , ?";
 		}
-		
-		
-		
 		
 		ArrayList<BoardDto> list = new ArrayList<>();
 		try {
@@ -56,6 +55,13 @@ public class BoardDao extends Dao{
 						rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getInt(6), rs.getInt(7), rs.getInt(8), 
 						rs.getInt(9), rs.getInt(10), rs.getString(11));
+				dto.setMimg(rs.getString(12));
+				sql = "select count(*) from reply where bno="+dto.getBno();
+				ps = con.prepareStatement(sql);
+				ResultSet rs2 = ps.executeQuery();
+				if(rs2.next()) {
+					dto.setRcount(rs2.getInt(1));
+				}
 				list.add(dto);
 			}
 		} catch (Exception e) {System.out.println(e);}
@@ -147,7 +153,68 @@ public class BoardDao extends Dao{
 		} catch (Exception e) {System.out.println(e);}
 		return false;
 	}
-}
+	
+	public boolean bfiledelete(int bno) {
+		String sql = "update board set bfile=null where bno="+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			int count = ps.executeUpdate();
+			if(count == 1) return true;
+		} catch (Exception e) {System.out.println(e);}
+		return false;
+	}
+	
+	
+	public boolean rwrite(ReplyDto dto) {
+		
+		String sql = "";
+		if(dto.getRindex() == 0) {
+			sql = "insert into reply(rcontent , mno , bno) values(?,?,?)";
+		}
+		else {
+			sql ="insert into reply(rcontent , mno , bno , rindex) values(?,?,?,?)";
+		}
+		
+		
+		
+		
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getRcontent());
+			ps.setInt(2, dto.getMno());
+			ps.setInt(3, dto.getBno());
+			if(dto.getRindex() != 0)ps.setInt(4, dto.getRindex());
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {System.out.println(e);}
+		return false;
+	}
+	
+	
+	
+	
+	public ArrayList<ReplyDto> getReplyList(int bno , int rindex) {
+		
+		String sql = "select r.* ,  m.mid , m.mimg from reply r natural join member m where r.rindex="+rindex+" and r.bno ="+bno;
+			
+		
+		ArrayList<ReplyDto> list = new ArrayList<>();
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				ReplyDto dto = new ReplyDto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), 
+						rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getString(8));
+				list.add(dto);
+			}
+			
+		} catch (Exception e) {System.out.println(e);}
+		return list;
+		
+	}
+	
+}	
 
 
 
