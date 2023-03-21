@@ -33,7 +33,11 @@
 				<li> <a href="/jspweb/Ex/board/list.jsp?cno=2"> 커뮤니티 </a> </li>
 				<li> <a href="/jspweb/Ex/board/list.jsp?cno=3"> QnA </a> </li>
 				<li> <a href="/jspweb/Ex/board/list.jsp?cno=4"> 노하우 </a> </li>
-				<li> <a href=""> 추가예정 </a> </li>
+				<li> <a href="/jspweb/Ex/API/Api1.jsp"> API </a> </li>
+				<li> <a href="/jspweb/Ex/API/Api2.jsp"> API지도 </a> </li>
+				<li> <a href="/jspweb/Ex/API/Api3.jsp"> API과제 </a> </li>
+				<li> <a href=""> xx </a> </li>
+				<li> <a href=""> yy </a> </li>
 			</ul>
 			<!-- 서브메뉴 -->
 			<div class="submenu">
