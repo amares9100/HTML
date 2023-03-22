@@ -36,7 +36,7 @@
 				<li> <a href="/jspweb/Ex/API/Api1.jsp"> API </a> </li>
 				<li> <a href="/jspweb/Ex/API/Api2.jsp"> API지도 </a> </li>
 				<li> <a href="/jspweb/Ex/API/Api3.jsp"> API과제 </a> </li>
-				<li> <a href=""> xx </a> </li>
+				<li> <a href="/jspweb/Ex/board/chatting.jsp"> chat </a> </li>
 				<li> <a href=""> yy </a> </li>
 			</ul>
 			<!-- 서브메뉴 -->
